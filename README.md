@@ -40,6 +40,8 @@ This is a microservice to provide Kyle's Calories with a list of recipies based 
   - [Recipes by Calories](#recipes-by-calories)
   - [Recipes by Meal Type](#recipes-by-meal-type)
   - [Recipes by Ingredient](#recipes-by-ingredient)
+  - [Order Recipes by Calorie Count](#order-recipes-by-calorie-count)
+  - [Order Recipes by Number of Ingredients](#order-recipes-by-number-of-ingredients)
 
 ## Recipes By Calories
 Send a GET request to receive recipes based on the count of calories.
@@ -131,8 +133,81 @@ Send a GET request to receive recipes based on ingredient type.
     }
   }
   ```
+
+## Order Recipes By Calorie Count
+Send a GET request to receive recipes ordered by calorie count.
+
+  #### GET /api/v1/recipes/calorie_count
+  ```
+  Content-Type: application/json
+  Accept: application/json
+  ```
+  ##### Example Request
+  ```/api/v1/recipes/calorie_count``
+
+  ##### Successful Response
+  ```
+  {
+    recipes: {
+      recipe_1: {
+        "id": 1,
+        "name": "recipe uno",
+        "calories": 1000
+      },
+      recipe_2: {
+        "id": 1,
+        "name": "recipe dos",
+        "calories": 750
+      },
+      recipe_3: {
+        "id": 1,
+        "name": "recipe tres",
+        "calories": 500
+      }
+    }
+  }
+  ```
   ##### Requirements
-  - A valid ingredient count must be provided, otherwise a (404) status code will be returned.
+  - A valid calorie ammount must be provided, otherwise a (404) status code will be returned.
+
+## Order Recipes By Number Of Ingredients
+Send a GET request to receive recipes ordered by number of ingredients.
+
+  #### GET /api/v1/recipes/ingredients
+  ```
+  Content-Type: application/json
+  Accept: application/json
+  ```
+  ##### Example Request
+  ```/api/v1/recipes/ingredients``
+
+  ##### Successful Response
+  ```
+  {
+    recipes: {
+      recipe_1: {
+        "id": 1,
+        "name": "recipe uno",
+        "calories": 1000,
+        "ingredientCount": 3
+      },
+      recipe_2: {
+        "id": 1,
+        "name": "recipe dos",
+        "calories": 750,
+        "ingredientCount": 4
+      },
+      recipe_3: {
+        "id": 1,
+        "name": "recipe tres",
+        "calories": 500,
+        "ingredientCount": 5
+      }
+    }
+  }
+  ```
+  ##### Requirements
+  - A valid number of ingredients must be provided, otherwise a (404) status code will be returned.
 ----------
 
 ## Contributing
