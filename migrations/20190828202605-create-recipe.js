@@ -1,0 +1,51 @@
+'use strict';
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Recipes', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      name: {
+        type: Sequelize.STRING
+      },
+      foodType: {
+        type: Sequelize.STRING
+      },
+      recipeUrl: {
+        type: Sequelize.STRING
+      },
+      recipeImage: {
+        type: Sequelize.STRING
+      },
+      ingredientList: {
+        type: Sequelize.STRING
+      },
+      ingredientCount: {
+        type: Sequelize.INTEGER
+      },
+      calorieCount: {
+        type: Sequelize.INTEGER
+      },
+      servingCount: {
+        type: Sequelize.INTEGER
+      },
+      mealType: {
+        type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Recipes');
+  }
+};
